@@ -1,10 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 
+import BmiCalculator from './components/BmiCalculator';
+
 function App() {
   return (
-    <div className="">
-      <h1>React App</h1>
+    <div className="App">
+      <div className="row justify-content-center">
+        <div className="col-lg-6 col-lg-offset-3">
+          <BmiCalculator />
+        </div>
+      </div>
     </div>
   );
 }
