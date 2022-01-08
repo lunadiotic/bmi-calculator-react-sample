@@ -1,4 +1,5 @@
 import React from 'react'
+import BmiCalculator from './BmiCalculator'
 
 const Bmi = () => {
     return (
@@ -13,6 +14,7 @@ const Bmi = () => {
                         Underweight
                     </div>
                 </div>
+                <BmiCalculator/>
             </div>
         </>
     )
