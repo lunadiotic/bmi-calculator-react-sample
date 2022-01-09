@@ -27,7 +27,7 @@ const BmiInput = props => {
 
 BmiInput.propTypes = {
     title: PropTypes.string,
-    value: PropTypes.number,
+    value: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     type: PropTypes.oneOf(['text', 'number'])
 }
