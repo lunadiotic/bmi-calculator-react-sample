@@ -6,8 +6,28 @@ const BmiCalculator = () => {
     const [heightUnit, setHeightUnit] = useState('')
     const [weightUnit, setWeightUnit] = useState('')
     const [unit, setUnit] = useState('')
+    const [count, setCount] = useState({
+        heightCount: '0',
+        inchesCount: '0',
+        weightCount: '0'
+    })
 
-    const onChangeInput = () => {}
+    const { heightCount, inchesCount, weightCount } = count; // destruct object count state 
+
+    const onChangeInput = (e) => {
+        // if (e.target.name === 'heightCount') {
+        //     setCount({
+        //         heightCount: e.target.value
+        //     })
+        // }
+
+        const { name, value } = e.target;
+        setCount(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    }
+
     const onSelected = (e) => {
         setUnit(e.target.value)
         if (e.target.value === 'metric') {
@@ -45,25 +65,25 @@ const BmiCalculator = () => {
                         </div>
                     </div>
                     <BmiInput
-                        type='text'
-                        name='heighCount'
+                        type='number'
+                        name='heightCount'
                         title={`Height (${heightUnit})`}
-                        value=""
+                        value={heightCount}
                         onChange={onChangeInput}/>
                     {
                         unit === 'imperial' ?
                         <BmiInput
-                            type='text'
+                            type='number'
                             name='inchesCount'
                             title={` (in)`}
-                            value=""
+                            value={inchesCount}
                             onChange={onChangeInput}/> : <></>
                     }
                     <BmiInput
-                        type='text'
+                        type='number'
                         name='weightCount'
                         title={`Weight (${weightUnit})`}
-                        value=""
+                        value={weightCount}
                         onChange={onChangeInput}/>
                 </div>
                 <button className="button" type='reset'>
