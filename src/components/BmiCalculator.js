@@ -39,6 +39,18 @@ const BmiCalculator = () => {
         }
     }
 
+    const resetForm = (e) => {
+        e.preventDefault()
+        setUnit('metric');
+        setCount({
+            heightCount: '0',
+            inchesCount: '0',
+            weightCount: '0'
+        })
+        setHeightUnit('cm')
+        setWeightUnit('kg')
+    }
+
     useEffect(() => { // seperti componentDidMount & componentDidUpdate
         if (unit === '') {
             setUnit('metric')
@@ -86,7 +98,7 @@ const BmiCalculator = () => {
                         value={weightCount}
                         onChange={onChangeInput}/>
                 </div>
-                <button className="button" type='reset'>
+                <button className="button" type='reset' onClick={resetForm}>
                     Reset
                 </button>
             </div>
