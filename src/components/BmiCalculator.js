@@ -51,13 +51,21 @@ const BmiCalculator = () => {
         setWeightUnit('kg')
     }
 
+    const metricBmi = (height, weight) => {
+        if (height > 0 && weight > 0) {
+            const bmi = (weight / height / height) * 10000
+            console.log(bmi)
+        }
+    }
+
     useEffect(() => { // seperti componentDidMount & componentDidUpdate
         if (unit === '') {
             setUnit('metric')
             setHeightUnit('cm')
             setWeightUnit('kg')
         }
-    }, [unit]) //useEffect akan bekerja setiap ada perubahan nilai pada unit
+        metricBmi(heightCount, weightCount)
+    }, [unit,heightCount, weightCount]) //useEffect akan bekerja setiap ada perubahan nilai pada unit
 
     return (
         <>
