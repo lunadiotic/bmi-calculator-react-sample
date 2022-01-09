@@ -6,8 +6,8 @@ import Bmi from './components/Bmi';
 function App() {
   return (
     <div className="App">
-      <div className="row text-center">
-          <div className="col-lg-6 offset-lg-3">
+      <div className="row justify-content-center">
+          <div className="col-lg-6">
           <Bmi />
         </div>
       </div>
