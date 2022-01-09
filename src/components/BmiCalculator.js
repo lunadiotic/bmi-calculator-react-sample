@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import BmiInput from './BmiInput'
 
@@ -18,6 +18,15 @@ const BmiCalculator = () => {
             setWeightUnit('lbs')
         }
     }
+
+    useEffect(() => { // seperti componentDidMount & componentDidUpdate
+        if (unit === '') {
+            setUnit('metric')
+            setHeightUnit('cm')
+            setWeightUnit('kg')
+        }
+    }, [unit]) //useEffect akan bekerja setiap ada perubahan nilai pada unit
+
     return (
         <>
             <div className="bmi-inputs">
